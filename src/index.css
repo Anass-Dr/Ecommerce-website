@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #26222f;
+  --secondary-color: #fbd84b;
+  --light-color: #8b8698;
+}
+
+::selection {
+  color: var(--primary-color);
+  background: var(--secondary-color);
+}
+::-moz-selection {
+  color: var(--primary-color);
+  background: var(--secondary-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 72px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+button {
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+html,
+body {
+  height: 100%;
+  color: var(--primary-color);
+}
+
+body {
+  font-family: 'Lexend', sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  height: 100%;
+}
+
+#potarls {
+  position: relative;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 31px;
+  font-size: 15px;
+  border-radius: 4px;
+  transition: all 0.5s ease;
+}
+
+.btn span {
+  margin-right: 1.1rem;
+}
+
+.btn svg {
+  height: 15px;
+  width: 15px;
+}
+
+.btn-filled {
+  color: var(--primary-color);
+  fill: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+.btn-filled:hover {
+  background-color: #ffe682;
+}
+
+.btn-outline {
+  color: #f8f8f8;
+  fill: #f8f8f8;
+  background-color: transparent;
+  border: 1px solid #f8f8f8;
+}
+
+.btn-outline:hover {
+  color: var(--primary-color);
+  fill: var(--primary-color);
+  background-color: #f8f8f8;
+}
+
+.simple-btn {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  display: inline-block;
+  align-self: flex-start;
+  padding: 15px 31px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.simple-btn:hover {
+  background-color: #ffe682;
+}
+
+.submit-btn {
+  padding: 15px 31px;
+}
+
+.hidden {
+  display: none !important;
+}

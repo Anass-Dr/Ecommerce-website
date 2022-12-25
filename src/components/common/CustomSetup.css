@@ -1,0 +1,20 @@
+.custom-setup {
+  background: url('../../assets/images/custom-setup.jpeg') no-repeat center;
+  position: relative;
+  color: #f8f8f8;
+}
+
+.custom-setup .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  padding: 140px 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.custom-setup h1 {
+  margin-bottom: 16px;
+}

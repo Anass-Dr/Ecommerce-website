@@ -1,0 +1,360 @@
+.store--container {
+  padding: 50px 0;
+  color: #8b8698;
+}
+
+#store .head--p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+#store .head--h4 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+#store .filter-side {
+  position: fixed;
+  top: 0;
+  width: 325px;
+  height: 100%;
+  background: #fff;
+  padding: 35px;
+  z-index: 100;
+  transition: all 0.5s linear;
+}
+
+#store .filter--open {
+  left: 0;
+}
+
+#store .filter--close {
+  left: -120%;
+}
+
+#store .filter-close {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 22px;
+  color: #8b8698;
+  cursor: pointer;
+}
+
+#store .filter-search {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.6rem;
+}
+
+#store .filter-search input {
+  font-size: 16px;
+  padding: 10px 10px;
+  border-radius: 2px;
+  font-weight: 300;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+#store .filter-search input::placeholder {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+#store .filter-search button {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border: none;
+  outline: none;
+  padding: 11.5px 14.25px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#store .filter-search button:hover {
+  background-color: bisque;
+}
+
+#store .filter-price {
+  color: #8b8698;
+}
+
+#store .filter-price p {
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+/***  Removing Default Style :  ***/
+input[type='range'] {
+  appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type='range']:focus {
+  outline: none;
+}
+
+input[type='range']::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+/***  Styling The Thumb  ***/
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #8b8698;
+  cursor: pointer;
+  margin-top: -6px;
+}
+input[type='range']::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #8b8698;
+  cursor: pointer;
+}
+/***  Styling The Track  ***/
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0px;
+}
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 0px;
+}
+/***************************/
+
+#store .range_container {
+  padding: 1rem 0;
+  margin-bottom: 24px;
+}
+
+#store .sliders_control {
+  position: relative;
+  padding: 12px 0;
+}
+
+#store .sliders_control::before {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #ddd;
+}
+
+#store .sliders_control::before,
+#store #minSlider,
+#store #maxSlider,
+#store .sliders_track {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#store .sliders_track {
+  width: 100%;
+  height: 4px;
+  top: -0.35px;
+  background: linear-gradient(
+    to right,
+    transparent var(--low),
+    var(--secondary-color) 0,
+    var(--secondary-color) var(--high),
+    transparent var(--low)
+  );
+}
+
+#store .form_control {
+  text-align: end;
+}
+
+#store .form_control > div {
+  display: inline-block;
+  position: relative;
+}
+
+#store .form_control > div::after {
+  content: '$';
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  font-weight: 300;
+  transform: translateY(-50%);
+}
+
+#store .form_control input {
+  font-family: 'Inter', sans-serif;
+  width: 60px;
+  border-radius: 4px;
+  padding: 8px 10px 8px 18px;
+  border: 1px solid #ddd;
+}
+
+#store .form_control input:first-child {
+  margin-right: 10px;
+}
+
+#store #range-reset {
+  color: #8b8698;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  text-align: right;
+  margin-top: 18px;
+}
+
+#store #range-reset button {
+  border-bottom: 1px solid var(--primary-color);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#store #range-reset button:hover {
+  border-bottom-color: transparent;
+}
+
+#store .categories li {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+  padding-left: 15px;
+}
+
+#store .categories a:hover {
+  color: var(--secondary-color);
+}
+
+#store .toolbar {
+  display: flex;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  margin-bottom: 38px;
+}
+
+#store .toolbar > li {
+  cursor: pointer;
+}
+
+#store .toolbar #filter {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-left: 8px;
+}
+
+#store .toolbar select {
+  margin-left: auto;
+  color: inherit;
+  font: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+#store .toolbar .display-style {
+  font-size: 1rem;
+}
+
+#store .toolbar .display-style:not(.display-style ~ .display-style) {
+  width: 19px;
+  height: 19px;
+  margin-right: 10px;
+}
+
+#store .toolbar .display-style:not(.display-style ~ .display-style) img {
+  width: 100%;
+  height: 100%;
+}
+
+#store .toolbar .display-style i {
+  color: #8b8698;
+  font-size: 18px;
+}
+
+#store .toolbar .display-style .active--i {
+  color: var(--secondary-color) !important;
+}
+
+#store .active-filters {
+  margin: 1.5rem 0;
+}
+
+#store .active-filters h3 {
+  font-size: 23px;
+  margin-bottom: 0.7em;
+  color: var(--primary-color);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+#store .active-filters ul {
+  display: flex;
+  gap: 12px;
+}
+
+#store .active-filters li {
+  background: rgba(245, 245, 245, 0.75);
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#store .active-filters i {
+  color: #fff;
+  font-size: 12px;
+  background: #8b8698;
+  border-radius: 50%;
+  padding: 2px 4px 1px;
+  margin-right: 8px;
+}
+
+#store .active-filters span {
+  font-weight: 300;
+  color: #8b8698;
+  font-family: 'Inter', sans-serif;
+}
+
+#store .pagination {
+  display: flex;
+  font-size: 15px;
+  color: #8b8698;
+  font-family: 'Inter', sans-serif;
+}
+
+#store .pagination > li {
+  display: grid;
+  place-items: center;
+  width: 37.5px;
+  height: 37.5px;
+  border: 1px solid #8b8698;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+#store .pagination > li:hover {
+  color: var(--primary-color);
+  background: #8b8698;
+}
+
+#store .pagination--active {
+  color: var(--primary-color);
+  background: #8b8698;
+  cursor: auto;
+}

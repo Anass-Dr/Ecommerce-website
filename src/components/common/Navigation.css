@@ -1,0 +1,105 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 2.2rem 35px;
+  border-bottom: 1px solid;
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar-light {
+  color: #f8f8f8;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.navbar-dark {
+  color: #8b8698;
+  border-bottom-color: #eaeaea;
+}
+
+.nav-logo {
+  margin-right: 4.3rem;
+}
+
+.nav-list {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.nav-list:last-child {
+  margin-left: auto;
+}
+
+.nav-item {
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.nav-search {
+  margin-left: 8px;
+}
+
+.nav-search input {
+  font-size: 16px;
+  padding: 12px 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+  font-weight: 300;
+  outline: none;
+}
+
+.navbar-light input {
+  background-color: #f8f8f8;
+  border: none;
+}
+
+.navbar-dark input {
+  background-color: transparent;
+  border: 1px solid #ddd;
+}
+
+.nav-search input::placeholder {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.nav-search button {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border: none;
+  outline: none;
+  padding: 13px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-search button:hover {
+  background-color: bisque;
+}
+
+.nav-shopping {
+  color: var(--secondary-color);
+  background-color: transparent;
+  font-size: 19px;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-shopping-items {
+  position: absolute;
+  right: -14px;
+  top: -14px;
+  font-size: 11px;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-weight: 500;
+}
+
+.nav-user {
+  color: var(--primary-color);
+  font-size: 18px;
+}

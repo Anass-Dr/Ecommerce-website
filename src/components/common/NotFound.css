@@ -1,0 +1,25 @@
+#not-found {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: #515151;
+  background-color: #f7f6f7;
+  border-top: 3px solid #8b8698;
+  padding: 1.5em 2em;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+#not-found i {
+  margin-right: 1rem;
+}
+
+#not-found .fa-xmark {
+  margin-left: auto;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#not-found .fa-xmark:active {
+  transform: scale(0.98);
+}
