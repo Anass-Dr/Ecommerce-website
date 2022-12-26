@@ -5,7 +5,6 @@ import { Routes, Route } from 'react-router-dom';
 import ProductDetails from './components/pages/product/ProductDetails';
 import ShoppingCart from './components/common/ShoppingCart';
 import Store from './components/pages/store/Store';
-import ProductCategory from './components/pages/product/ProductCategory';
 
 function App() {
   return (
@@ -14,12 +13,8 @@ function App() {
         <ShoppingCart />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/store" element={<Store />} />
           <Route path="/product/:title" element={<ProductDetails />} />
-          <Route
-            path="/product-category/:category"
-            element={<ProductCategory />}
-          />
+          <Route path="/store" element={<Store />} />
         </Routes>
       </div>
     </CartContextProvider>

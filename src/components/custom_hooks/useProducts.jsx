@@ -3,7 +3,7 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../FirebaseConfig';
 
 export const useProducts = (params) => {
-  const { keyword, fieldName, fieldType, f } = params;
+  const { keyword, fieldName = 'title', fieldType = 'str', f } = params;
   const queryOperator =
     fieldType === 'str'
       ? where(`${fieldName}`, '==', keyword)

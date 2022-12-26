@@ -18,11 +18,13 @@ const SocialLinks = () => {
 };
 
 const ListItem = (props) => {
-  const { title } = props;
+  const { title, path = '#' } = props;
 
   return (
     <li className="footer-links__list-item">
-      <Link to="#">{title}</Link>
+      <Link to={path} state={{ category: title }}>
+        {title}
+      </Link>
     </li>
   );
 };
@@ -57,10 +59,10 @@ function Footer() {
             <ListItem title="Customer Support" />
           </List>
           <List head="Categories">
-            <ListItem title="Table" />
-            <ListItem title="Chairs" />
-            <ListItem title="Cabinets" />
-            <ListItem title="Laptop Stands" />
+            <ListItem title="Table" path="/store" />
+            <ListItem title="Chairs" path="/store" />
+            <ListItem title="Cabinets" path="/store" />
+            <ListItem title="Laptop Stands" path="/store" />
           </List>
           <List head="Information">
             <ListItem title="FAQs" />

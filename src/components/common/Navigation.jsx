@@ -7,7 +7,9 @@ import './Navigation.css';
 const ListItem = ({ path, title }) => {
   return (
     <li className="nav-item">
-      <Link to={path}>{title}</Link>
+      <Link to={path} reloadDocument>
+        {title}
+      </Link>
     </li>
   );
 };

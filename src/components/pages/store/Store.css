@@ -227,15 +227,22 @@ input[type='range']::-moz-range-track {
   border-bottom-color: transparent;
 }
 
-#store .categories li {
+#store .filter-categories {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#store .filter-categories li {
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 300;
   line-height: 1.9;
   padding-left: 15px;
+  cursor: pointer;
 }
 
-#store .categories a:hover {
+#store .filter-categories li:hover {
   color: var(--secondary-color);
 }
 

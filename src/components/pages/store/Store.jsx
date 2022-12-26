@@ -1,25 +1,29 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Navigation from '../../common/Navigation';
 import GridItems from '../../common/GridItems';
 import Overlay from '../../common/Overlay';
 import CustomSetup from '../../common/CustomSetup';
 import Footer from '../../common/Footer';
 import NotFound from '../../common/NotFound';
+import useProducts from '../../custom_hooks/useProducts';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../FirebaseConfig';
 import activeGridIcon from '../../../assets/icons/grid-active.png';
 import gridIcon from '../../../assets/icons/grid.png';
 import './Store.css';
 
-const Head = () => {
+const Head = ({ search }) => {
+  const path = search.url[0].toUpperCase() + search.url.slice(1);
   return (
     <div id="head">
       <p className="head--p">
         <Link to="/">Home</Link>
-        <span> / Store</span>
+        <span> / {path}</span>
       </p>
-      <h4 className="head--h4">Shop</h4>
+      <h4 className="head--h4">
+        {path === 'Search' ? `Search results: "${search.query}"` : 'Shop'}
+      </h4>
     </div>
   );
 };
@@ -40,7 +44,7 @@ const Toolbar = (props) => {
         <span id="filter">Filter</span>
       </li>
       <select value={selectValue} onChange={handleSelectValue}>
-        <option value="default">Default sorting</option>
+        <option value="default">Relevence</option>
         <option value="popular">Sort by popularity</option>
         <option value="rate">Sort by average rating</option>
         <option value="latest">Sort by latest</option>
@@ -140,10 +144,14 @@ const FilterSide = (props) => {
     isOpen,
     minPrice,
     maxPrice,
+    search,
     handleFilterSide,
     handlePriceFilter,
+    handleCategoryFilter,
+    handleSearch,
   } = props;
   const trackLength = maxPrice - minPrice;
+  const searchRef = useRef();
 
   const handlePriceSliderMin = (e) => {
     const min =
@@ -192,6 +200,15 @@ const FilterSide = (props) => {
     }
   };
 
+  const handleSearchBtn = () => {
+    const query = searchRef.current.value;
+    if (query.length > 0) {
+      handleSearch(query);
+      handleFilterSide();
+    }
+    searchRef.current.value = '';
+  };
+
   const categories = [];
   products.forEach((product) =>
     product.category.forEach((item) => {
@@ -229,8 +246,13 @@ const FilterSide = (props) => {
         <i className="fa-solid fa-xmark"></i>
       </div>
       <div className="filter-search">
-        <input type="text" placeholder="Search products..." />
-        <button>
+        <input
+          onKeyDown={(e) => (e.code === 'Enter' ? handleSearchBtn() : null)}
+          ref={searchRef}
+          type="text"
+          placeholder="Search products..."
+        />
+        <button onClick={handleSearchBtn}>
           <i className="fa-solid fa-angle-right"></i>
         </button>
       </div>
@@ -289,24 +311,33 @@ const FilterSide = (props) => {
             </div>
           )}
         </div>
-        <ul className="categories">
-          {categories
-            .sort((a, b) => (a.category > b.category ? 1 : -1))
-            .map((obj, idx) => (
-              <li key={idx}>
-                <Link to={`/product-category/${obj.category}`}>
+        {search.url === 'store' && (
+          <ul className="filter-categories">
+            {categories
+              .sort((a, b) => (a.category > b.category ? 1 : -1))
+              .map((obj, idx) => (
+                <li
+                  onClick={() => handleCategoryFilter(obj.category)}
+                  key={idx}
+                >
                   {obj.category} ({obj.count})
-                </Link>
-              </li>
-            ))}
-        </ul>
+                </li>
+              ))}
+          </ul>
+        )}
       </div>
     </div>
   );
 };
 
 /***  ACTIVE FILTERS :  ***/
-const ActiveFilters = ({ priceFilter, minPrice, maxPrice, onClose }) => {
+const ActiveFilters = ({
+  priceFilter,
+  minPrice,
+  maxPrice,
+  category,
+  onClose,
+}) => {
   const [filters, setFilters] = useState({});
 
   useEffect(() => {
@@ -315,8 +346,10 @@ const ActiveFilters = ({ priceFilter, minPrice, maxPrice, onClose }) => {
     for (const key of Object.keys(priceFilter)) {
       if (priceFilter[key] != base[key]) obj[key] = priceFilter[key];
     }
+
+    if (category) obj['Category'] = category;
     setFilters(obj);
-  }, [priceFilter]);
+  }, [priceFilter, category]);
 
   const handleClose = (key) => {
     const obj = { ...filters };
@@ -334,8 +367,10 @@ const ActiveFilters = ({ priceFilter, minPrice, maxPrice, onClose }) => {
           <li onClick={() => handleClose(key)} key={idx}>
             <i className="fa-solid fa-xmark"></i>
             <span>
-              {key[0].toUpperCase() + key.slice(1)} $
-              {Number(filters[key]).toFixed(2)}
+              {key === 'Category'
+                ? `${key}: ${filters[key]}`
+                : `${key[0].toUpperCase() + key.slice(1)} $
+              ${Number(filters[key]).toFixed(2)}`}
             </span>
           </li>
         ))}
@@ -351,8 +386,11 @@ function Store() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [priceValue, setPriceValue] = useState({});
   const [priceFilter, setPriceFilter] = useState({});
+  const [categoryFilter, setCategoryFilter] = useState('');
   const [selectValue, setSelectValue] = useState('');
   const [displayStyle, setDisplayStyle] = useState('grid');
+  const [search, setSearch] = useState({ url: 'store', query: '' });
+  const location = useLocation();
 
   useEffect(() => {
     const getData = async () => {
@@ -362,6 +400,10 @@ function Store() {
       });
     };
     getData();
+    const url = window.location.href.split('/').slice(-1)[0];
+    setSearch((prev) => ({ ...prev, url }));
+
+    console.log(location.state);
   }, []);
 
   const handleGroup = (arg) => {
@@ -382,12 +424,21 @@ function Store() {
     handleFilterSide();
   };
 
+  const handleCategoryFilter = (category) => {
+    setCategoryFilter(category);
+    handleFilterSide();
+  };
+
   const handleFilterDelete = (key) => {
-    const base = { min: minPrice, max: maxPrice };
-    const obj = { ...priceValue };
-    obj[key] = base[key];
-    setPriceFilter(obj);
-    setPriceValue(obj);
+    if (key === 'Category') {
+      setCategoryFilter('');
+    } else {
+      const base = { min: minPrice, max: maxPrice };
+      const obj = { ...priceValue };
+      obj[key] = base[key];
+      setPriceFilter(obj);
+      setPriceValue(obj);
+    }
   };
 
   const handleSelectValue = (e) => {
@@ -401,6 +452,13 @@ function Store() {
   const handleAlert = () => {
     setPriceFilter({});
     setPriceValue({ min: minPrice, max: maxPrice });
+    setSearch({ url: 'store', query: '' });
+  };
+
+  const handleSearch = (query) => {
+    window.history.replaceState(null, null, '/store/search');
+    setSearch({ url: 'search', query });
+    setCategoryFilter('');
   };
 
   const maxPrice = useMemo(
@@ -436,14 +494,27 @@ function Store() {
     [products, priceValue]
   );
 
+  const finalProducts = useMemo(() => {
+    if (search.url === 'store')
+      return categoryFilter
+        ? filteredProducts.filter((item) =>
+            item.category.includes(categoryFilter.toLowerCase())
+          )
+        : filteredProducts;
+    else
+      return filteredProducts.filter((item) =>
+        item.title.toLowerCase().includes(search.query)
+      );
+  }, [products, priceValue, categoryFilter, search]);
+
   return (
     <div id="store">
       <Navigation theme="dark" />
       {products.length !== 0 && (
         <>
           <div className="container store--container">
-            <Head />
-            {filteredProducts.length === 0 ? (
+            <Head search={search} />
+            {finalProducts.length === 0 ? (
               <NotFound f={handleAlert} />
             ) : (
               <Toolbar
@@ -453,25 +524,26 @@ function Store() {
                 handleDisplayStyle={handleDisplayStyle}
               />
             )}
-            {Object.keys(priceValue).length !== 0 &&
-              filteredProducts.length !== 0 && (
+            {Object.keys(priceValue).length !== 0 ||
+              (categoryFilter && (
                 <ActiveFilters
                   priceFilter={priceValue}
+                  category={categoryFilter}
                   minPrice={minPrice}
                   maxPrice={maxPrice}
                   onClose={handleFilterDelete}
                 />
-              )}
+              ))}
             <Products
-              products={filteredProducts}
+              products={finalProducts}
               group={group}
               selectValue={selectValue}
               theme={displayStyle}
             />
-            {Math.ceil(filteredProducts.length / 12) > 1 && (
+            {Math.ceil(finalProducts.length / 12) > 1 && (
               <Pagination
                 currentGroup={group}
-                groups={Math.ceil(filteredProducts.length / 12)}
+                groups={Math.ceil(finalProducts.length / 12)}
                 handleGroup={handleGroup}
               />
             )}
@@ -482,11 +554,14 @@ function Store() {
             priceFilter={priceValue}
             setPriceFilter={setPriceValue}
             isOpen={isFilterOpen}
-            products={products}
+            products={filteredProducts}
             minPrice={minPrice}
             maxPrice={maxPrice}
+            search={search}
             handleFilterSide={handleFilterSide}
             handlePriceFilter={handlePriceFilter}
+            handleCategoryFilter={handleCategoryFilter}
+            handleSearch={handleSearch}
           />
         </>
       )}
