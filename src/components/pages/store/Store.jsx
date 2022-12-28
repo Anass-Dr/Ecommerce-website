@@ -203,7 +203,7 @@ const FilterSide = (props) => {
   const handleSearchBtn = () => {
     const query = searchRef.current.value;
     if (query.length > 0) {
-      handleSearch(query);
+      handleSearch('title', query);
       handleFilterSide();
     }
     searchRef.current.value = '';
@@ -389,7 +389,7 @@ function Store() {
   const [categoryFilter, setCategoryFilter] = useState('');
   const [selectValue, setSelectValue] = useState('');
   const [displayStyle, setDisplayStyle] = useState('grid');
-  const [search, setSearch] = useState({ url: 'store', query: '' });
+  const [search, setSearch] = useState({ url: 'store', type: '', query: '' });
   const location = useLocation();
 
   useEffect(() => {
@@ -400,10 +400,11 @@ function Store() {
       });
     };
     getData();
-    const url = window.location.href.split('/').slice(-1)[0];
-    setSearch((prev) => ({ ...prev, url }));
 
-    console.log(location.state);
+    if (location.state) {
+      const { type, query } = location.state;
+      handleSearch(type, query);
+    }
   }, []);
 
   const handleGroup = (arg) => {
@@ -417,6 +418,7 @@ function Store() {
 
   const handleFilterSide = () => {
     setIsFilterOpen((prev) => !prev);
+    document.body.style.overflow = isFilterOpen ? 'auto' : 'hidden';
   };
 
   const handlePriceFilter = (min, max) => {
@@ -455,9 +457,9 @@ function Store() {
     setSearch({ url: 'store', query: '' });
   };
 
-  const handleSearch = (query) => {
+  const handleSearch = (type, query) => {
     window.history.replaceState(null, null, '/store/search');
-    setSearch({ url: 'search', query });
+    setSearch({ url: 'search', type, query });
     setCategoryFilter('');
   };
 
@@ -502,9 +504,13 @@ function Store() {
           )
         : filteredProducts;
     else
-      return filteredProducts.filter((item) =>
-        item.title.toLowerCase().includes(search.query)
-      );
+      return search.type === 'title'
+        ? filteredProducts.filter((item) =>
+            item.title.toLowerCase().includes(search.query)
+          )
+        : filteredProducts.filter((item) =>
+            item.category.includes(search.query.toLowerCase())
+          );
   }, [products, priceValue, categoryFilter, search]);
 
   return (

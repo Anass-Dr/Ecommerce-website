@@ -19,3 +19,8 @@ export { default as visaPayment } from '../assets/images/visa-payment.svg';
 export { default as masterCardPayment } from '../assets/images/master-card-payment.svg';
 export { default as amexPayment } from '../assets/images/amex-payment.svg';
 export { default as discoverPayment } from '../assets/images/discover-payment.svg';
+export { default as officeSetup1 } from '../assets/images/office-setup-1.jpeg';
+export { default as officeSetup2 } from '../assets/images/office-setup-2.jpeg';
+export { default as officeSetup3 } from '../assets/images/office-setup-3.jpeg';
+export { default as officeSetup4 } from '../assets/images/office-setup-4.jpeg';
+export { default as officeSetup5 } from '../assets/images/office-setup-5.jpeg';

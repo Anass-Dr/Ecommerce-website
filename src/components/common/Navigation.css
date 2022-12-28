@@ -49,6 +49,7 @@
 }
 
 .navbar-light input {
+  color: var(--primary-color);
   background-color: #f8f8f8;
   border: none;
 }

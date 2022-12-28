@@ -22,7 +22,7 @@ const ListItem = (props) => {
 
   return (
     <li className="footer-links__list-item">
-      <Link to={path} state={{ category: title }}>
+      <Link to={path} state={{ type: 'category', query: title }}>
         {title}
       </Link>
     </li>
@@ -62,7 +62,7 @@ function Footer() {
             <ListItem title="Table" path="/store" />
             <ListItem title="Chairs" path="/store" />
             <ListItem title="Cabinets" path="/store" />
-            <ListItem title="Laptop Stands" path="/store" />
+            <ListItem title="Desk Plants" path="/store" />
           </List>
           <List head="Information">
             <ListItem title="FAQs" />
