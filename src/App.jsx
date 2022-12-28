@@ -5,7 +5,8 @@ import { Routes, Route } from 'react-router-dom';
 import ProductDetails from './components/pages/product/ProductDetails';
 import ShoppingCart from './components/common/ShoppingCart';
 import Store from './components/pages/store/Store';
-import OfficeSetup from './components/pages/office_setup/OfficeSetup';
+import OfficeSetup from './components/pages/setups/OfficeSetup';
+import HomeSetup from './components/pages/setups/HomeSetup';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/product/:title" element={<ProductDetails />} />
           <Route path="/store" element={<Store />} />
           <Route path="/office-setups" element={<OfficeSetup />} />
+          <Route path="/home-office-setups" element={<HomeSetup />} />
         </Routes>
       </div>
     </CartContextProvider>
