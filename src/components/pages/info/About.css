@@ -1,0 +1,157 @@
+#about-page hr,
+#contact-page hr {
+  background: var(--secondary-color);
+  border: none;
+  outline: none;
+}
+
+#about-page p,
+#contact-page p {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+#about-page .row,
+#contact-page .row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+#about-story {
+  padding: 80px 40px;
+}
+
+#about-story .col {
+  padding-right: 80px;
+}
+
+#about-story h6,
+#about-story h2 {
+  margin-bottom: 32px;
+}
+
+#about-story hr {
+  height: 2px;
+  width: 48px;
+}
+
+#about-story p {
+  color: #8b8698;
+  margin-bottom: 1em;
+}
+
+#story-video {
+  position: relative;
+  margin: 48px 0 60px;
+}
+
+#story-video img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#story-video #playIcon {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 74px;
+  height: 74px;
+  color: #ddd;
+  font-size: 30px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  padding-left: 4px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#story-video:hover #playIcon {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+#story-features {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  color: var(--secondary-color);
+}
+
+#story-features > div {
+  max-width: 30%;
+}
+
+#story-features h5 {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 500;
+  margin: 22px 0 12px;
+}
+
+#about-feedback {
+  padding: 65px 0 40px;
+}
+
+#about-feedback .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#about-feedback i {
+  font-size: 26px;
+  color: var(--secondary-color);
+}
+
+#about-feedback h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #8b8698;
+  padding: 0 16%;
+  text-align: center;
+}
+
+#about-feedback .profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #8b8698;
+  font-family: 'Inter', sans-serif;
+}
+
+#about-feedback img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+#about-feedback p {
+  line-height: 1;
+}
+
+#about-feedback span {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+#about-collection {
+  padding: 30px 0 90px;
+}
+
+#about-collection .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

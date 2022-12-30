@@ -1,8 +1,6 @@
 import React from 'react';
 import Header from './Header';
 import Releases from './Releases';
-import CustomSetup from '../../common/CustomSetup';
-import Footer from '../../common/Footer';
 import {
   homeSetupDesc,
   homeSetup1,
@@ -142,8 +140,6 @@ function HomeSetup() {
       <FirstProduct />
       <Releases />
       <Products />
-      <CustomSetup />
-      <Footer />
     </div>
   );
 }

@@ -6,8 +6,6 @@ import SimpleBtn from '../../common/SimpleBtn';
 import Loading from '../../common/Loading';
 import useProducts from '../../custom_hooks/useProducts';
 import GridItems from '../../common/GridItems';
-import CustomSetup from '../../common/CustomSetup';
-import Footer from '../../common/Footer';
 import './ProductDetails.css';
 
 const ProductInfoHead = ({ tab, onClick }) => {
@@ -236,8 +234,6 @@ function ProductDetails() {
               title={product.title}
             />
           </div>
-          <CustomSetup />
-          <Footer />
         </>
       ) : (
         <Loading />

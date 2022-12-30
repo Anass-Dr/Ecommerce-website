@@ -3,10 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Navigation from '../../common/Navigation';
 import GridItems from '../../common/GridItems';
 import Overlay from '../../common/Overlay';
-import CustomSetup from '../../common/CustomSetup';
-import Footer from '../../common/Footer';
 import NotFound from '../../common/NotFound';
-import useProducts from '../../custom_hooks/useProducts';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../FirebaseConfig';
 import activeGridIcon from '../../../assets/icons/grid-active.png';
@@ -554,8 +551,6 @@ function Store() {
               />
             )}
           </div>
-          <CustomSetup />
-          <Footer />
           <FilterSide
             priceFilter={priceValue}
             setPriceFilter={setPriceValue}

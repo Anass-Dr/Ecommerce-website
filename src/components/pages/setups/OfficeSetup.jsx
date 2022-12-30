@@ -1,8 +1,6 @@
 import React from 'react';
 import Header from './Header';
 import Releases from './Releases';
-import CustomSetup from '../../common/CustomSetup';
-import Footer from '../../common/Footer';
 import {
   officeSetup1,
   officeSetup2,
@@ -131,8 +129,6 @@ function OfficeSetup() {
       <Info />
       <Releases />
       <ShowCase />
-      <CustomSetup />
-      <Footer />
     </div>
   );
 }
