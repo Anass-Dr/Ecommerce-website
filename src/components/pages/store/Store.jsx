@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Navigation from '../../common/Navigation';
 import GridItems from '../../common/GridItems';
 import Overlay from '../../common/Overlay';
-import NotFound from '../../common/NotFound';
+import Alert from '../../common/Alert';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../FirebaseConfig';
 import activeGridIcon from '../../../assets/icons/grid-active.png';
@@ -518,7 +518,10 @@ function Store() {
           <div className="container store--container">
             <Head search={search} />
             {finalProducts.length === 0 ? (
-              <NotFound f={handleAlert} />
+              <Alert
+                msg="No products were found matching your selection."
+                f={handleAlert}
+              />
             ) : (
               <Toolbar
                 handleFilterSide={handleFilterSide}

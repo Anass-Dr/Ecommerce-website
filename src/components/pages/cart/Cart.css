@@ -1,0 +1,134 @@
+#cart-page .container {
+  padding: 50px;
+}
+
+#cart-page h3 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+#cart-body {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #8b8698;
+}
+
+#cart-page table {
+  border-collapse: collapse;
+}
+
+#products-table {
+  width: 68%;
+  align-self: flex-start;
+  border: 1px solid #ddd;
+}
+
+#cart-page thead {
+  background: #f8f8f8;
+}
+
+#cart-page tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#cart-page th,
+#cart-page td {
+  text-align: left;
+  padding: 0.9rem 15px;
+}
+
+#products-table img {
+  max-width: 70px;
+}
+
+#products-table .product-quantity {
+  width: max-content;
+}
+
+#products-table td:last-child span {
+  font-size: 10px;
+  color: #8b8698;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.product-quantity span,
+.product-quantity input {
+  font-size: 16px;
+  width: 38px;
+  height: 35px;
+}
+
+.product-quantity span {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.product-quantity input::-webkit-outer-spin-button,
+.product-quantity input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+#cart-totals {
+  width: 30%;
+  border: 1px solid #ddd;
+}
+
+#cart-totals h5 {
+  font-family: 'Lexend', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary-color);
+  background: #f8f8f8;
+  padding: 0.7rem 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+#cart-totals--wrapper {
+  padding: 0 20px 30px;
+}
+
+#cart-totals--wrapper table {
+  width: 100%;
+  margin: 22px 0;
+  font-weight: 300;
+  line-height: 1;
+}
+
+#cart-totals--wrapper > div {
+  font: inherit;
+  font-weight: 300;
+  padding: 15px 0;
+}
+
+#cart-totals--wrapper span {
+  cursor: pointer;
+}
+
+#cart-totals--wrapper .btn {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 16.5px;
+  font-weight: 500;
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  padding: 15px 31px;
+}
+
+#cart-totals--wrapper .btn:hover {
+  background: #ffe682;
+}

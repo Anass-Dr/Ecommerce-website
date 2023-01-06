@@ -11,6 +11,7 @@ import OfficeSetup from './components/pages/setups/OfficeSetup';
 import HomeSetup from './components/pages/setups/HomeSetup';
 import About from './components/pages/info/About';
 import Contact from './components/pages/info/Contact';
+import Cart from './components/pages/cart/Cart';
 
 function App() {
   return (
@@ -20,11 +21,12 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/product/:title" element={<ProductDetails />} />
-          <Route path="/store" element={<Store />} />
+          <Route path="/shop" element={<Store />} />
           <Route path="/office-setups" element={<OfficeSetup />} />
           <Route path="/home-office-setups" element={<HomeSetup />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <CustomSetup />
         <Footer />

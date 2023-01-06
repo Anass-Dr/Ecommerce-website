@@ -59,10 +59,10 @@ function Footer() {
             <ListItem title="Customer Support" />
           </List>
           <List head="Categories">
-            <ListItem title="Table" path="/store" />
-            <ListItem title="Chairs" path="/store" />
-            <ListItem title="Cabinets" path="/store" />
-            <ListItem title="Desk Plants" path="/store" />
+            <ListItem title="Table" path="/shop" />
+            <ListItem title="Chairs" path="/shop" />
+            <ListItem title="Cabinets" path="/shop" />
+            <ListItem title="Desk Plants" path="/shop" />
           </List>
           <List head="Information">
             <ListItem title="FAQs" />

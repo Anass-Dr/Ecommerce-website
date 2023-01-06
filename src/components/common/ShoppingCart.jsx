@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import ReactDom from 'react-dom';
 import xIcon from '../../assets/icons/x-icon.svg';
 import { cartContext } from '../context/CartContext';
@@ -70,7 +71,15 @@ function ShppingCart() {
               <p>${subTotal}</p>
             </div>
             <div className="shopping-cart--action view-cart">
-              <button>View cart</button>
+              <Link
+                onClick={() => {
+                  handleCart();
+                  document.body.style.overflow = 'auto';
+                }}
+                to="/cart"
+              >
+                <button>View cart</button>
+              </Link>
             </div>
           </>
         )}

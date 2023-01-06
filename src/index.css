@@ -80,11 +80,6 @@ body {
   height: 100%;
 }
 
-#potarls {
-  position: relative;
-  z-index: 1000;
-}
-
 .container {
   max-width: 1200px;
   margin: auto;

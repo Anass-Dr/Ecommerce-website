@@ -29,7 +29,7 @@ function Navigation({ theme }) {
 
   const handleSearch = () => {
     const query = searchRef.current.value;
-    return navigate('/store', {
+    return navigate('/shop', {
       state: { type: 'title', query },
     });
   };
@@ -42,7 +42,7 @@ function Navigation({ theme }) {
         <Logo type={theme} />
       </div>
       <List>
-        <ListItem path="/store" title="Store" reload={true} />
+        <ListItem path="/shop" title="Store" reload={true} />
         <ListItem path="/office-setups" title="Office" />
         <ListItem path="/home-office-setups" title="Home Office" />
       </List>
