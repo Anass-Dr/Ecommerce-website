@@ -2,6 +2,7 @@ import React, { useContext, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 import { cartContext } from '../context/CartContext';
+import { navbarContext } from '../context/NavbarContext';
 import './Navigation.css';
 
 const ListItem = ({ path, title, reload = false }) => {
@@ -24,6 +25,7 @@ const List = ({ children }) => {
 
 function Navigation({ theme }) {
   const { cartProducts: products, handleCart } = useContext(cartContext);
+  const { handleNav } = useContext(navbarContext);
   const searchRef = useRef();
   const navigate = useNavigate();
 
@@ -36,7 +38,9 @@ function Navigation({ theme }) {
 
   return (
     <nav
-      className={`navbar ${theme === 'light' ? 'navbar-light' : 'navbar-dark'}`}
+      className={`navigation ${
+        theme === 'light' ? 'navigation-light' : 'navigation-dark'
+      }`}
     >
       <div className="nav-logo">
         <Logo type={theme} />
@@ -67,6 +71,9 @@ function Navigation({ theme }) {
         <Link className="nav-user" to="/user">
           <i className="fa-solid fa-user"></i>
         </Link>
+        <div onClick={handleNav} className="nav-toggle">
+          <i className="fa-solid fa-bars-staggered"></i>
+        </div>
       </List>
     </nav>
   );

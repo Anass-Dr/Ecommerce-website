@@ -1,0 +1,127 @@
+#checkout-page .checkout_container {
+  padding: 50px;
+  font-family: 'Inter', sans-serif;
+}
+
+#checkout-page h3,
+#checkout-page h4 {
+  font-weight: 500;
+  font-family: 'Lexend', sans-serif;
+  color: var(--primary-color);
+}
+
+#checkout-page h3 {
+  font-size: 30px;
+  margin-bottom: 1.5rem;
+}
+
+#checkout-page h4 {
+  font-size: 22px;
+  padding-top: 1em;
+  padding-bottom: 0.7em;
+}
+
+#checkout_body {
+  color: #8b8698;
+  display: flex;
+}
+
+#checkout_body form {
+  padding-right: 4.3%;
+}
+
+#checkout_body .row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 12px;
+}
+
+#checkout-page .form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 0;
+}
+
+#checkout-page .form-control label {
+  font-size: 13.5px;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+#checkout-page .form-control label span {
+  color: red;
+}
+
+#checkout-page .form-control input,
+#checkout-page .form-control select,
+#checkout-page .form-control textarea {
+  font-weight: 300;
+  padding: 0.75rem;
+  line-height: 1;
+  color: #666;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+#checkout_body button {
+  background: var(--secondary-color);
+  width: 100%;
+  font-size: 15px;
+  color: var(--primary-color);
+  font-weight: 500;
+  padding: 15px 31px;
+  margin-top: -1.5rem;
+  cursor: pointer;
+}
+
+#checkout_body button:hover {
+  background: #ffe682;
+}
+
+#checkout_product-preview {
+  min-width: 40%;
+  position: relative;
+}
+
+#checkout_product-preview > div {
+  position: sticky;
+  top: 0;
+}
+
+#checkout_product-preview table {
+  border: 1px solid #ddd;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#checkout_product-preview tr {
+  border: 1px solid #ddd;
+}
+
+#checkout_product-preview tr:last-child {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#checkout_product-preview td:last-child {
+  text-align: right;
+}
+
+#checkout_product-preview td {
+  padding: 1em 1.2em;
+}
+
+#checkout_product-preview td:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#checkout_product-preview img {
+  width: 50px;
+  height: 50px;
+}

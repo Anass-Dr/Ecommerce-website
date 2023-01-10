@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ReactDom from 'react-dom';
 import xIcon from '../../assets/icons/x-icon.svg';
 import { cartContext } from '../context/CartContext';
@@ -7,6 +7,8 @@ import Overlay from './Overlay';
 import './ShoppingCart.css';
 
 function ShppingCart() {
+  const navigate = useNavigate();
+
   const {
     isCartOpen: mode,
     cartProducts: products,
@@ -20,6 +22,15 @@ function ShppingCart() {
       : products
           .reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
           .toFixed(2);
+
+  const handleBtn = function () {
+    if (products.length !== 0) {
+      document.body.overflow = 'auto';
+      window.scrollTo(0, 0);
+      navigate('/checkout');
+    }
+    handleCart(true);
+  };
 
   return ReactDom.createPortal(
     <>
@@ -88,7 +99,7 @@ function ShppingCart() {
             products.length === 0 ? 'continue--shopping' : 'checkout'
           }`}
         >
-          <button>
+          <button onClick={handleBtn}>
             {products.length === 0 ? 'Continue Shopping' : 'Checkout'}
           </button>
         </div>

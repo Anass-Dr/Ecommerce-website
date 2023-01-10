@@ -150,3 +150,35 @@ body {
 .hidden {
   display: none !important;
 }
+
+@media screen and (max-width: 1105px) {
+  h1 {
+    font-size: 56px;
+  }
+
+  h6 {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .container {
+    max-width: 767px;
+  }
+  h1,
+  h2 {
+    font-weight: 500;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h6 {
+    font-size: 12px;
+  }
+  .btn {
+    padding: 12px 20px;
+  }
+}

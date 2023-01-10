@@ -44,10 +44,11 @@ const CartContextProvider = ({ children }) => {
     setCartProducts(newProducts);
   };
 
-  const handleCart = () => {
+  const handleCart = (to = false) => {
     if (isCartOpen) {
       setIsCartOpen(false);
-      document.body.style.overflow = isOnPrev ? 'hidden' : 'auto';
+      if (to) document.body.style.overflow = 'auto';
+      else document.body.style.overflow = isOnPrev ? 'hidden' : 'auto';
       setIsOnPrev(false);
     } else {
       setIsCartOpen(true);

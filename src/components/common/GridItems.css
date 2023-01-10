@@ -108,3 +108,19 @@
   inset: 0;
   z-index: 100;
 }
+
+@media screen and (max-width: 544px) {
+  .grid {
+    margin-bottom: 70px;
+  }
+  .grid-sm,
+  .grid-lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .product-card--body__title {
+    font-size: 14px;
+  }
+  .product-card--body__price {
+    font-size: 12.6px;
+  }
+}
