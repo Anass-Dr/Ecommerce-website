@@ -132,3 +132,15 @@
 #cart-totals--wrapper .btn:hover {
   background: #ffe682;
 }
+
+@media screen and (max-width: 544px) {
+  #cart-page .container {
+    padding: 50px 20px;
+  }
+  #cart-body {
+    flex-direction: column;
+  }
+  #products-table {
+    width: 100%;
+  }
+}

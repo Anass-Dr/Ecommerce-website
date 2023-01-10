@@ -117,10 +117,24 @@
   .grid-lg {
     grid-template-columns: repeat(2, 1fr);
   }
+  .grid-md {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-md img {
+    height: auto;
+    width: 125px;
+  }
+  .product-card--body {
+    padding: 0 10px 0 16px;
+  }
   .product-card--body__title {
     font-size: 14px;
   }
   .product-card--body__price {
     font-size: 12.6px;
+  }
+  .product-card--body__desc {
+    font-size: 14px;
   }
 }

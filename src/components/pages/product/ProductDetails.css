@@ -144,3 +144,30 @@
   color: var(--primary-color);
   margin-bottom: 1rem;
 }
+
+@media screen and (max-width: 544px) {
+  .product-details img {
+    max-width: 100%;
+    min-width: auto;
+    width: auto;
+  }
+  .product-details > div {
+    padding: 50px 20px 0;
+  }
+  .product-prev--body {
+    flex-direction: column;
+  }
+  .product-prev--body__payments p {
+    font-size: 14px;
+    width: max-content;
+  }
+  .product-info--desc {
+    font-size: 14px;
+  }
+  .product-info--review p {
+    line-height: 1.8;
+  }
+  .product-info--review .form-control {
+    flex-direction: column;
+  }
+}

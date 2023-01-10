@@ -131,3 +131,38 @@
 #contact-form input[type='submit']:hover {
   background: #ffe682;
 }
+
+@media screen and (max-width: 544px) {
+  #contact-page .header-wrapper p {
+    margin-bottom: 2rem;
+  }
+  #contact-us {
+    padding: 0 20px 80px;
+  }
+  #contact-us .cart > div {
+    height: 320px;
+  }
+  #contact-us .info-wrapper {
+    flex-direction: column;
+    padding-top: 30px;
+  }
+  #contact-info {
+    width: 100%;
+  }
+  #contact-info__h5 {
+    font-size: 16px;
+  }
+  #contact-form {
+    padding: 8px 0 0;
+  }
+  #contact-form hr {
+    margin-bottom: 10px;
+  }
+  #contact-form label {
+    font-size: 14px;
+  }
+  #contact-form input[type='submit'] {
+    padding: 11px 28px;
+    font-size: 14px;
+  }
+}

@@ -149,3 +149,9 @@
   color: var(--primary-color);
   background-color: var(--secondary-color);
 }
+
+@media screen and (max-width: 544px) {
+  .shopping-cart {
+    width: 100%;
+  }
+}
