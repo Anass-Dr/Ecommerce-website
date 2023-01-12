@@ -163,7 +163,7 @@ const Form = function ({ total }) {
 
 const Order = function ({ products, total }) {
   return (
-    <div id="checkout_product-preview">
+    <div id="checkout_product-preview" className="checkout_product-prev">
       <div>
         <h4>Your order</h4>
         <table>
@@ -198,6 +198,50 @@ const Order = function ({ products, total }) {
   );
 };
 
+const OrderSummary = function ({ products, total }) {
+  const [isActive, setIsActive] = React.useState(false);
+
+  return (
+    <div id="product-summary" className="checkout_product-prev">
+      <div
+        onClick={() => setIsActive((prev) => !prev)}
+        id="product-summary_head"
+      >
+        <p>
+          {isActive ? 'Hide' : 'Show'} Order Summary{' '}
+          <span className={isActive ? 'rounded' : ''}>
+            <i className="fa-solid fa-caret-down"></i>
+          </span>
+        </p>
+        <p>$total</p>
+      </div>
+      <table className={isActive ? 'show-table' : 'hide-table'}>
+        <tbody>
+          {products.map((product, idx) => (
+            <tr key={idx}>
+              <td>
+                <img src={product.img} alt="product-img" />
+                <p>
+                  {product.title} x {product.quantity}
+                </p>
+              </td>
+              <td>${(product.price * product.quantity).toFixed(2)}</td>
+            </tr>
+          ))}
+          <tr>
+            <td>Subtotal</td>
+            <td>${total}</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>${total}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
 function Checkout() {
   const { cartProducts } = React.useContext(cartContext);
   const navigate = useNavigate();
@@ -217,6 +261,7 @@ function Checkout() {
         <h3>Checkout</h3>
         {cartProducts.length !== 0 && (
           <div id="checkout_body">
+            <OrderSummary products={cartProducts} total={total} />
             <Form total={total} />
             <Order products={cartProducts} total={total} />
           </div>

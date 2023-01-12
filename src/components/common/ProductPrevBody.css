@@ -198,3 +198,27 @@
   width: 12px;
   height: 12px;
 }
+
+@media screen and (max-width: 544px) {
+  .sm {
+    height: auto;
+    max-width: 100%;
+  }
+  .product-prev--body__img {
+    min-width: auto;
+    width: 100%;
+  }
+  .product-prev--body p {
+    font-size: 14px;
+  }
+  .product-prev--body__desc {
+    font-size: 14px;
+  }
+  .sm .wrapper {
+    max-height: 100%;
+    padding: 15px 15px 0;
+  }
+  .sm .add-to-cart {
+    padding-bottom: 20px;
+  }
+}

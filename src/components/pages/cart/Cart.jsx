@@ -5,6 +5,128 @@ import Alert from '../../common/Alert';
 import { cartContext } from '../../context/CartContext';
 import './Cart.css';
 
+const ProductsTableLg = function ({
+  products,
+  handleSubQuantity,
+  handleInputChange,
+  handleAddQuantity,
+  handleProductDelete,
+}) {
+  return (
+    <table className="products-table" id="products-table-lg">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {products.map((item, idx) => (
+          <tr key={idx}>
+            <td>
+              <img src={item.img} alt="product-img" />
+            </td>
+            <td>{item.title}</td>
+            <td>${item.price}</td>
+            <td>
+              <div className="product-quantity">
+                <span onClick={() => handleSubQuantity(idx)}>-</span>
+                <input
+                  type="number"
+                  min="1"
+                  value={item.quantity}
+                  onChange={() => handleInputChange(idx)}
+                />
+                <span onClick={() => handleAddQuantity(idx)}>+</span>
+              </div>
+            </td>
+            <td>${(item.price * item.quantity).toFixed(2)}</td>
+            <td>
+              <span
+                className="p-close"
+                onClick={() => handleProductDelete(idx)}
+              >
+                &#10005;
+              </span>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
+
+const ProductsTableSm = function ({
+  products,
+  handleSubQuantity,
+  handleInputChange,
+  handleAddQuantity,
+  handleProductDelete,
+}) {
+  return (
+    <table className="products-table" id="products-table-sm">
+      <tbody>
+        {products.map((item, idx) => (
+          <>
+            <tr className="first-tr">
+              <td>
+                <span
+                  className="p-close"
+                  onClick={() => handleProductDelete(idx)}
+                >
+                  &#10005;
+                </span>
+              </td>
+            </tr>
+            <tr className="img-tr">
+              <td>
+                <img src={item.img} alt="product-img" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Product: </p>
+                <p>{item.title}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Price: </p>
+                <p>{item.price}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Quantity: </p>
+                <div className="product-quantity">
+                  <span onClick={() => handleSubQuantity(idx)}>-</span>
+                  <input
+                    type="number"
+                    min="1"
+                    value={item.quantity}
+                    onChange={() => handleInputChange(idx)}
+                  />
+                  <span onClick={() => handleAddQuantity(idx)}>+</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Subtotal: </p>
+                <p>${(item.price * item.quantity).toFixed(2)}</p>
+              </td>
+            </tr>
+          </>
+        ))}
+      </tbody>
+    </table>
+  );
+};
+
 function Cart() {
   const { cartProducts, setCartProducts, handleCartItems } =
     useContext(cartContext);
@@ -68,47 +190,20 @@ function Cart() {
           <Alert msg="Your cart is currently empty." />
         ) : (
           <div id="cart-body">
-            <table id="products-table">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Subtotal</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((item, idx) => (
-                  <tr key={idx}>
-                    <td>
-                      <img src={item.img} alt="product-img" />
-                    </td>
-                    <td>{item.title}</td>
-                    <td>${item.price}</td>
-                    <td>
-                      <div className="product-quantity">
-                        <span onClick={() => handleSubQuantity(idx)}>-</span>
-                        <input
-                          type="number"
-                          min="1"
-                          value={item.quantity}
-                          onChange={() => handleInputChange(idx)}
-                        />
-                        <span onClick={() => handleAddQuantity(idx)}>+</span>
-                      </div>
-                    </td>
-                    <td>${(item.price * item.quantity).toFixed(2)}</td>
-                    <td>
-                      <span onClick={() => handleProductDelete(idx)}>
-                        &#10005;
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <ProductsTableSm
+              products={products}
+              handleSubQuantity={handleSubQuantity}
+              handleInputChange={handleInputChange}
+              handleAddQuantity={handleAddQuantity}
+              handleProductDelete={handleProductDelete}
+            />
+            <ProductsTableLg
+              products={products}
+              handleSubQuantity={handleSubQuantity}
+              handleInputChange={handleInputChange}
+              handleAddQuantity={handleAddQuantity}
+              handleProductDelete={handleProductDelete}
+            />
             <div id="cart-totals">
               <h5>Cart totals</h5>
               <div id="cart-totals--wrapper">

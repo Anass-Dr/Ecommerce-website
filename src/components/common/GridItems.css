@@ -137,4 +137,10 @@
   .product-card--body__desc {
     font-size: 14px;
   }
+  .product-prev {
+    height: 100%;
+    display: block;
+    padding: 40px 38px;
+    overflow-y: auto;
+  }
 }
