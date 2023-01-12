@@ -122,10 +122,7 @@ const ShowCase = function () {
 function OfficeSetup() {
   return (
     <div id="office-setup" className="setups">
-      <Header
-        title="Office Setups"
-        img="/src/assets/images/office-main-bg.jpeg"
-      />
+      <Header title="Office Setups" img="/office-main-bg.jpeg" />
       <Info />
       <Releases />
       <ShowCase />

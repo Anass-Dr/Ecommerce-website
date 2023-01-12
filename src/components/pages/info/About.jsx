@@ -136,10 +136,7 @@ const Collection = function () {
 function About() {
   return (
     <div id="about-page">
-      <Header
-        title="About Us"
-        imgSrc="url('/src/assets/images/about-main.jpeg')"
-      />
+      <Header title="About Us" imgSrc="url('/about-main.jpeg')" />
       <Story />
       <Feedback />
       <Collection />

@@ -103,10 +103,7 @@ const ContactUs = function () {
 function Contact() {
   return (
     <div id="contact-page">
-      <Header
-        title="Contact Us"
-        imgSrc="url('/src/assets/images/contact-main.jpeg')"
-      />
+      <Header title="Contact Us" imgSrc="url('/contact-main.jpeg')" />
       <ContactUs />
     </div>
   );

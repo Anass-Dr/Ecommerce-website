@@ -132,10 +132,7 @@ const Products = function () {
 function HomeSetup() {
   return (
     <div className="setups">
-      <Header
-        title="Work from Home Setups"
-        img="/src/assets/images/home-setup-main.jpeg"
-      />
+      <Header title="Work from Home Setups" img="/home-setup-main.jpeg" />
       <Description />
       <FirstProduct />
       <Releases />
