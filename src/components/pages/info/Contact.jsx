@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactHtmlParser from 'react-html-parser';
+import parse from 'html-react-parser';
 import Header from './Header';
 import './Contact.css';
 
@@ -81,7 +81,7 @@ const Form = function () {
 const Cart = function () {
   const iframeHTML =
     '<iframe src="https://maps.google.com/maps?q=san%20francisco&t=m&z=14&output=embed&iwloc=near" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
-  return <div>{ReactHtmlParser(iframeHTML)}</div>;
+  return <div>{parse(iframeHTML)}</div>;
 };
 
 const ContactUs = function () {
