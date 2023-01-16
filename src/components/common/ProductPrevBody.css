@@ -221,4 +221,7 @@
   .sm .add-to-cart {
     padding-bottom: 20px;
   }
+  .product-prev .overlay {
+    position: fixed;
+  }
 }
